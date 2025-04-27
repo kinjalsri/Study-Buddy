@@ -1,5 +1,5 @@
 🎓 Virtual Study Room
-GitHub: github.com/kinjal/virtualstudyroom
+
 
 An interactive productivity companion designed to enhance student focus and organization. The application integrates essential study tools like timers, task tracking, and a built-in Lo-Fi music player — all within a minimal and calming UI.
 
