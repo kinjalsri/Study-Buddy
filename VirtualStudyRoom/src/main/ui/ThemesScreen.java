@@ -36,7 +36,7 @@ public class ThemesScreen extends JPanel // extends JPanel
 
         background.setBounds(x, y, imageWidth, imageHeight);
         add(background);
-        JLabel titleLabel = new JLabel("THEMES");
+        JLabel titleLabel = new JLabel("Bye..");
 
         // Set font and color
         titleLabel.setFont(new Font("Courier New", Font.BOLD, 24)); // adjust size as needed
@@ -50,7 +50,7 @@ public class ThemesScreen extends JPanel // extends JPanel
         int a = (420 - textWidth) / 2 + 5;
 
         int b = 60; // adjust to place it vertically near the top of screen area
-        System.err.println(a + " " + b + " " + textWidth + " " + textHeight);
+
         // Set bounds for titleLabel
 
         titleLabel.setBounds(a, b, textWidth, textHeight);
@@ -58,42 +58,6 @@ public class ThemesScreen extends JPanel // extends JPanel
         this.add(titleLabel);
 
         Font buttonFont = new Font("Courier New", Font.BOLD, 20);
-
-        JButton darkButton = new JButton("→ DARK");
-        darkButton.setFont(buttonFont);
-        darkButton.setForeground(Color.BLACK);
-        darkButton.setBackground(new Color(0xF8DDEB)); // Match background for transparent feel
-        darkButton.setBorderPainted(false);
-        darkButton.setFocusPainted(false);
-        darkButton.setBounds(105, 90, 160, 30); // Adjust x, y as needed
-        this.add(darkButton);
-
-        JButton chillButton = new JButton("→ CHILL");
-        chillButton.setFont(buttonFont);
-        chillButton.setForeground(Color.BLACK);
-        chillButton.setBackground(new Color(0xF8DDEB));
-        chillButton.setBorderPainted(false);
-        chillButton.setFocusPainted(false);
-        chillButton.setBounds(105, 120, 160, 30);
-        this.add(chillButton);
-
-        JButton rainButton = new JButton("→ RAIN");
-        rainButton.setFont(buttonFont);
-        rainButton.setForeground(Color.BLACK);
-        rainButton.setBackground(new Color(0xF8DDEB));
-        rainButton.setBorderPainted(false);
-        rainButton.setFocusPainted(false);
-        rainButton.setBounds(105, 150, 160, 30);
-        this.add(rainButton);
-
-        JButton beachButton = new JButton("→ BEACH");
-        beachButton.setFont(buttonFont);
-        beachButton.setForeground(Color.BLACK);
-        beachButton.setBackground(new Color(0xF8DDEB));
-        beachButton.setBorderPainted(false);
-        beachButton.setFocusPainted(false);
-        beachButton.setBounds(105, 180, 160, 30);
-        this.add(beachButton);
 
         ImageIcon BackIcon = new ImageIcon("VirtualStudyRoom/src/main/ui/Room5.png"); // Put full path if needed
 
@@ -124,6 +88,30 @@ public class ThemesScreen extends JPanel // extends JPanel
             mainFrame.setContentPane(new HomeScreen(mainFrame));
             mainFrame.revalidate();
         });
+        JLabel countdownLabel = new JLabel("Closing in 10...");
+        countdownLabel.setFont(new Font("Courier New", Font.PLAIN, 18));
+        countdownLabel.setForeground(Color.DARK_GRAY);
+        countdownLabel.setBounds((420 - 200) / 2 + 30, 120, 200, 30);
+        this.add(countdownLabel);
+
+        // Update countdown every second
+        new Thread(() -> {
+            for (int i = 9; i >= 0; i--) {
+                try {
+                    Thread.sleep(1000);
+                    final int seconds = i;
+                    javax.swing.SwingUtilities.invokeLater(() -> {
+                        countdownLabel.setText("Closing in " + seconds + "...");
+                        if (seconds == 0) {
+                            System.out.println("Disposing frame now...");
+                            mainFrame.dispose();
+                        }
+                    });
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
 
         add(background);
 

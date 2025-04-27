@@ -53,7 +53,7 @@ public class Main {
                 case 4:
                     System.out.print("Enter YouTube playlist link: ");
                     String link = scanner.nextLine();
-                    musicService.playYouTube(link);
+                    musicService.playLoFi();
                     break;
                 case 5:
                     musicService.stopMusic();

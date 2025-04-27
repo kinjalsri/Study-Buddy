@@ -1,7 +1,7 @@
 package main.models;
 
 public class Music {
-    protected boolean isPlaying;
+    public boolean isPlaying;
 
     public void play() {
         isPlaying = true;

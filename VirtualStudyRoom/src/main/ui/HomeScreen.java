@@ -84,15 +84,15 @@ public class HomeScreen extends JPanel {
         goalsButton.setBounds(105, 150, 160, 30);
         this.add(goalsButton);
 
-        // THEMES button
-        JButton themesButton = new JButton("→ THEMES");
-        themesButton.setFont(buttonFont);
-        themesButton.setForeground(Color.BLACK);
-        themesButton.setBackground(new Color(0xF8DDEB));
-        themesButton.setBorderPainted(false);
-        themesButton.setFocusPainted(false);
-        themesButton.setBounds(105, 180, 160, 30);
-        this.add(themesButton);
+        // exit button
+        JButton exitButton = new JButton("→ EXIT");
+        exitButton.setFont(buttonFont);
+        exitButton.setForeground(Color.BLACK);
+        exitButton.setBackground(new Color(0xF8DDEB));
+        exitButton.setBorderPainted(false);
+        exitButton.setFocusPainted(false);
+        exitButton.setBounds(105, 180, 160, 30);
+        this.add(exitButton);
 
         ImageIcon focusIcon = new ImageIcon("VirtualStudyRoom/src/main/ui/room3.png"); // Put full path if needed
 
@@ -134,7 +134,7 @@ public class HomeScreen extends JPanel {
 
         });
 
-        themesButton.addActionListener(e -> {
+        exitButton.addActionListener(e -> {
             mainFrame.setContentPane(new ThemesScreen(mainFrame));
             mainFrame.revalidate();
 
